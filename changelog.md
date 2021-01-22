@@ -1,5 +1,11 @@
 # Architect Deploy changelog
 
+## [2.3.4] 2021-1-22
+
+### Added
+
+- Added code to skip hydration when `--skip-hydrate` flag is set
+
 ---
 
 ## [2.3.3] 2021-01-07
