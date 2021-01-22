@@ -33,6 +33,7 @@ module.exports = function samDeploy (params, callback) {
     tags,
     update,
     verbose,
+    skipHydrate = false
   } = params
   let { inv, get } = inventory
   if (!update) update = updater('Deploy')
@@ -134,8 +135,13 @@ module.exports = function samDeploy (params, callback) {
     /**
      * Hydrate dependencies
      */
-    function hydrateTheThings (callback) {
-      hydrate.install({ autoinstall: true }, callback)
+    function maybeHydrateTheThings (callback) {
+      if (skipHydrate) {
+        callback()
+      }
+      else {
+        hydrate.install({ autoinstall: true }, callback)
+      }
     },
 
     /**
