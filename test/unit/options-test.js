@@ -32,6 +32,11 @@ test('should return apiType', t => {
   t.equal(options([ 'arc', 'deploy', '--apigateway', 'http' ]).apiType, 'http', '"--apigatewa" param sets isStatic')
 })
 
+test('should return skipHydrate option', t => {
+  t.plan(1)
+  t.ok(options([ 'arc', 'deploy', '--skip-hydrate' ]).skipHydrate, '"--skip-hydrate" param set skipHydrate')
+})
+
 test('should return tags', t => {
   t.plan(6)
   let tag = 'foo=bar'
